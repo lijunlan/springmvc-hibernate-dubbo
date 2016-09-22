@@ -33,15 +33,15 @@ public class Starter {
             ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                     new String[]{contextFile});
             context.start();
-            LeeUserService s = (LeeUserService) context.getBean("leeUserService");
-            JSONObject ll = new JSONObject();
-            ll.put("name","李俊澜");
-            ll.put("age","24");
-            JSONObject t = s.createUser(ll);
-            System.out.println("return :" + t);
-
-            JSONObject t2 = s.getUser(t.getString("id"));
-            System.out.println(t2);
+//            LeeUserService s = (LeeUserService) context.getBean("leeUserService");
+//            JSONObject ll = new JSONObject();
+//            ll.put("name","李俊澜");
+//            ll.put("age","24");
+//            JSONObject t = s.createUser(ll);
+//            System.out.println("return :" + t);
+//
+//            JSONObject t2 = s.getUser(t.getString("id"));
+//            System.out.println(t2);
             //redis 初始化
 //            try {
 //                QRedisConfig.loadRedisConf();
