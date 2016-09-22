@@ -18,7 +18,7 @@
     <!-- 提供方应用信息，用于计算依赖关系 -->
     <import resource="dubbo_consumer.xml"/>
     <!--conversion-service="conversionService"  validator="validator"-->
-    <mvc:annotation-driven/>
+    <mvc:annotation-driven validator="validator"/>
     <context:component-scan base-package="com.sdll18.lee1"/>
 
 
@@ -35,19 +35,19 @@
     <!--<property name="resolveLazily" value="true"></property>-->
     <!--<property name="defaultEncoding" value="UTF-8" />-->
     <!--</bean>-->
-    <!--<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">-->
-    <!--<property name="providerClass" value="org.hibernate.validator.HibernateValidator"/>-->
-    <!--<property name="validationMessageSource" ref="messageSource"/>-->
-    <!--</bean>-->
-    <!--<bean id="messageSource"-->
-    <!--class="org.springframework.context.support.ReloadableResourceBundleMessageSource">-->
-    <!--<property name="basename" value="classpath:manage_poi"/>-->
-    <!--<property name="fileEncodings" value="utf-8"/>-->
-    <!--<property name="cacheSeconds" value="120"/>-->
-    <!--</bean>-->
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+    <property name="providerClass" value="org.hibernate.validator.HibernateValidator"/>
+    <property name="validationMessageSource" ref="messageSource"/>
+    </bean>
+    <bean id="messageSource"
+          class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basename" value="classpath:validation"/>
+        <property name="fileEncodings" value="utf-8"/>
+        <property name="cacheSeconds" value="120"/>
+    </bean>
     <!--<bean id="exceptionHandler" class="ms.luna.web.exception.LunaWebException"/>-->
 
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/"/>
-    </bean>
+    <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
+        <!--<property name="prefix" value="/"/>-->
+    <!--</bean>-->
 </beans>
