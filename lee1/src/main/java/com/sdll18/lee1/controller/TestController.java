@@ -1,7 +1,9 @@
 package com.sdll18.lee1.controller;
 
+import com.alibaba.dubbo.config.annotation.Reference;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.sdll18.service.LeeNoSqlService;
 import com.sdll18.service.LeeUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,8 +21,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/test")
 public class TestController {
 
+    //    @Reference(interfaceName = "leeUserService")
     @Autowired
     private LeeUserService leeUserService;
+
+    @Autowired
+    private LeeNoSqlService leeNoSqlService;
 
     @RequestMapping(value = "/test1/{id}")
     @ResponseBody
@@ -42,5 +48,20 @@ public class TestController {
     @ResponseBody
     public JSONObject test3(@PathVariable String id) {
         return leeUserService.getUser(id);
+    }
+
+    @RequestMapping(value = "/test4")
+    @ResponseBody
+    public JSONObject test4() {
+        JSONObject inData = new JSONObject();
+        inData.put("name", "junlanli");
+        inData.put("age", "33");
+        return leeNoSqlService.createLee(inData);
+    }
+
+    @RequestMapping(value = "/test5/{id}")
+    @ResponseBody
+    public JSONObject test5(@PathVariable String id) {
+        return leeNoSqlService.getLee(id);
     }
 }

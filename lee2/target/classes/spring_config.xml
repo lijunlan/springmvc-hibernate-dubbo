@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
-       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="
  http://www.springframework.org/schema/beans 
- http://www.springframework.org/schema/beans/spring-beans-2.0.xsd 
- http://www.springframework.org/schema/tx
- http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+ http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
  http://www.springframework.org/schema/context
  http://www.springframework.org/schema/context/spring-context-2.5.xsd"
        default-lazy-init="true">
@@ -16,59 +14,5 @@
     <!-- <context:component-scan base-package="ms.luna.biz.bl"/> <context:component-scan
         base-package="ms.luna.biz.bl.impl"/> -->
     <context:annotation-config/>
-
-    <!-- 配置数据源 -->
-    <bean id="dataSource"
-          class="com.mchange.v2.c3p0.ComboPooledDataSource">
-        <property name="driverClass" value="com.mysql.jdbc.Driver"/>
-        <property name="jdbcUrl" value="jdbc:mysql://47.90.63.120:3306/lee_test?useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true&amp;failOverReadOnly=false"/>
-        <property name="user" value="root"/>
-        <property name="password" value="ll1992917"/>
-        <property name="initialPoolSize" value="30"/>
-        <property name="minPoolSize" value="10"/>
-        <property name="maxPoolSize" value="50"/>
-        <property name="maxIdleTime" value="5000"/>
-        <property name="acquireIncrement" value="5"/>
-    </bean>
-
-    <!-- 配置session factory -->
-    <bean id="sessionFactory"
-          class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-        <property name="dataSource" ref="dataSource"/>
-        <property name="packagesToScan" value="com.sdll18.lee2.model"/>
-        <property name="hibernateProperties">
-            <props>
-                <prop key="hibernate.hbm2ddl.auto">create</prop>
-                <prop key="hibernate.c3p0.timeout">60</prop>
-                <prop key="hibernate.connection.autocommit">false</prop>
-                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
-                <prop key="hibernate.show_sql">true</prop>
-                <prop key="hibernate.format_sql">true</prop>
-                <prop key="hibernate.jdbc.batch_size">50</prop>
-                <!--<prop key="hibernate.hibernate.connection.SetBigStringTryClob">${hibernate.hibernate.connection.SetBigStringTryClob}</prop>-->
-                <prop key="hibernate.hibernate.archive.autodetection">class
-                </prop>
-                <prop key="hibernate.hibernate.connection.charSet">UTF-8</prop>
-                <prop key="hibernate.hibernate.cache.use_query_cache">false
-                </prop>
-                <prop key="hibernate.hibernate.cache.use_second_level_cache">
-                    false
-                </prop>
-                <!--<prop key="hibernate.hibernate.ejb.naming_strategy">${hibernate.hibernate.ejb.naming_strategy}</prop>-->
-            </props>
-        </property>
-    </bean>
-
-    <bean id="mongoConnector" class="com.sdll18.lee2.common.MongoConnector">
-        <constructor-arg value="mongo.properties"/>
-    </bean>
-
-    <!-- 配置事务管理器 -->
-    <bean id="txManager"
-          class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
-
-    <tx:annotation-driven transaction-manager="txManager"/>
 
 </beans>

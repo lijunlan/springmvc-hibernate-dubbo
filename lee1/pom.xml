@@ -313,7 +313,7 @@
                 </plugins>
             </build>
             <properties>
-                <zookeeper.address>localhost:2181</zookeeper.address>
+                <zookeeper.address>127.0.0.1:2181</zookeeper.address>
                 <log4j.level>DEBUG</log4j.level>
                 <cosBaseDir>/dev</cosBaseDir>
                 <vodBaseDir>/dev</vodBaseDir>

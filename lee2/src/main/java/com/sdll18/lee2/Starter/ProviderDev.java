@@ -13,7 +13,7 @@ public class ProviderDev {
     private final static Logger logger = Logger.getLogger(ProviderDev.class);
 
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         System.out.println("Provider Service is starting......");
         final Starter starter = new Starter("dubbo_provider.xml");
         // attach shutdown handler to catch control-c

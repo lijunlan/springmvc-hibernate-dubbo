@@ -9,5 +9,7 @@
 
     <!--<dubbo:service interface="ms.luna.biz.sc.AuthoritySetService" ref="authoritySetService" />-->
     <dubbo:service interface="com.sdll18.service.LeeUserService" ref="leeUserService"/>
+    <dubbo:service interface="com.sdll18.service.LeeNoSqlService" ref="leeNoSqlService"/>
+
 
 </beans>

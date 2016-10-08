@@ -1,9 +1,7 @@
 package com.sdll18.lee2.Starter;
 
 import com.alibaba.fastjson.JSONObject;
-import com.sdll18.lee2.dao.impl.LeeUserDaoImpl;
-import com.sdll18.lee2.model.Lee;
-import com.sdll18.service.LeeUserService;
+import com.sdll18.service.LeeNoSqlService;
 import org.apache.log4j.Logger;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.util.Log4jConfigurer;
@@ -33,10 +31,15 @@ public class Starter {
             ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                     new String[]{contextFile});
             context.start();
-//            LeeUserService s = (LeeUserService) context.getBean("leeUserService");
+//            LeeNoSqlService s = (LeeNoSqlService) context.getBean("leeNoSqlService");
 //            JSONObject ll = new JSONObject();
-//            ll.put("name","李俊澜");
-//            ll.put("age","24");
+//            ll.put("name", "李俊澜");
+//            ll.put("age", "214");
+//            JSONObject t = s.createLee(ll);
+//            System.out.println("return :" + t);
+//            JSONObject t2 = s.getLee(t.getString("id"));
+//            System.out.println(t2);
+//            LeeUserService s = (LeeUserService) context.getBean("leeUserService");
 //            JSONObject t = s.createUser(ll);
 //            System.out.println("return :" + t);
 //
