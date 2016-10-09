@@ -4,6 +4,7 @@ import com.alibaba.fastjson.annotation.JSONField;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Copyright (C) 2015 - 2016 MICROSCENE Inc., All Rights Reserved.
@@ -13,7 +14,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "lee")
-public class Lee {
+public class Lee implements Serializable{
 
     @JSONField(name = "id")
     @Id

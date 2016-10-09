@@ -1,7 +1,10 @@
 package com.sdll18.lee2.Starter;
 
 import com.alibaba.fastjson.JSONObject;
+import com.sdll18.lee2.dao.cache.LeeCacheDao;
+import com.sdll18.lee2.model.sql.Lee;
 import com.sdll18.service.LeeNoSqlService;
+import com.sdll18.service.LeeUserService;
 import org.apache.log4j.Logger;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.util.Log4jConfigurer;
@@ -31,14 +34,23 @@ public class Starter {
             ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                     new String[]{contextFile});
             context.start();
+//            LeeCacheDao lcd = (LeeCacheDao) context.getBean("leeCacheDao");
+//            Lee lee = new Lee();
+//            lee.setId("guyfyfug=");
+//            lee.setAge(77);
+//            lee.setName("redis_test");
+//            lcd.setCacheLee(lee);
+//
+//            Lee l = lcd.getCacheLee("guyfyfug=");
+//            System.out.println(l);
 //            LeeNoSqlService s = (LeeNoSqlService) context.getBean("leeNoSqlService");
 //            JSONObject ll = new JSONObject();
-//            ll.put("name", "李俊澜");
-//            ll.put("age", "214");
-//            JSONObject t = s.createLee(ll);
-//            System.out.println("return :" + t);
-//            JSONObject t2 = s.getLee(t.getString("id"));
-//            System.out.println(t2);
+//            ll.put("name", "redis");
+//            ll.put("age", "12");
+////            JSONObject t = s.createLee(ll);
+////            System.out.println("return :" + t);
+////            JSONObject t2 = s.getLee(t.getString("id"));
+////            System.out.println(t2);
 //            LeeUserService s = (LeeUserService) context.getBean("leeUserService");
 //            JSONObject t = s.createUser(ll);
 //            System.out.println("return :" + t);
