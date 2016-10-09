@@ -36,12 +36,12 @@ public class Starter {
             context.start();
 //            LeeCacheDao lcd = (LeeCacheDao) context.getBean("leeCacheDao");
 //            Lee lee = new Lee();
-//            lee.setId("guyfyfug=");
+//            lee.setId("ooiwetriewreworjew");
 //            lee.setAge(77);
 //            lee.setName("redis_test");
 //            lcd.setCacheLee(lee);
 //
-//            Lee l = lcd.getCacheLee("guyfyfug=");
+//            Lee l = lcd.getCacheLee("ooiwetriewreworjew");
 //            System.out.println(l);
 //            LeeNoSqlService s = (LeeNoSqlService) context.getBean("leeNoSqlService");
 //            JSONObject ll = new JSONObject();
