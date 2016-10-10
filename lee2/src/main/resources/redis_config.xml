@@ -9,7 +9,8 @@
     <!--<bean id="marshaller" class="org.springframework.oxm.xstream.XStreamMarshaller"/>-->
     <!--p:marshaller-ref="marshaller"
               p:unmarshaller-ref="marshaller"-->
-    <bean id="redisValueSerializer" class="org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer"/>
+    <bean id="redisValueSerializer" class="org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer"
+    />
 
     <bean id="redisKeySerializer" class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
 
