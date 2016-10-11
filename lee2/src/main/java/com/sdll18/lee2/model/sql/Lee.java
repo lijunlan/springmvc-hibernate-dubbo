@@ -5,6 +5,8 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * Copyright (C) 2015 - 2016 MICROSCENE Inc., All Rights Reserved.
@@ -14,7 +16,7 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "lee")
-public class Lee implements Serializable{
+public class Lee implements Serializable {
 
     @JSONField(name = "id")
     @Id
@@ -30,6 +32,9 @@ public class Lee implements Serializable{
     @JSONField(name = "age")
     @Column(name = "age")
     private Integer age;
+
+    @Column(name = "time", columnDefinition = "timestamp")
+    private Date timestamp;
 
     public String getId() {
         return id;
@@ -55,12 +60,21 @@ public class Lee implements Serializable{
         this.age = age;
     }
 
+    public Date getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Date timestamp) {
+        this.timestamp = timestamp;
+    }
+
     @Override
     public String toString() {
         return "Lee{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", age=" + age +
+                ", timestamp=" + timestamp +
                 '}';
     }
 }

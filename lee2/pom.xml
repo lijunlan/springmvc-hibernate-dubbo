@@ -397,7 +397,8 @@
                 <mongo.socketTimeout>1500</mongo.socketTimeout>
                 <mongo.slaveOk>true</mongo.slaveOk>
                 <redis.host>47.90.63.120</redis.host>
-                <redis.port>6379</redis.port>
+                <!--6379-->
+                <redis.port>7000</redis.port>
                 <redis.instanceId></redis.instanceId>
                 <redis.password>ll1992917</redis.password>
             </properties>
