@@ -9,6 +9,7 @@
 /Users/junlanli/Desktop/Work/springmvc-hibernate-dubbo/lee2/src/main/java/com/sdll18/lee2/dao/nosql/impl/AbstractBaseNoSqlDaoImpl.java
 /Users/junlanli/Desktop/Work/springmvc-hibernate-dubbo/lee2/src/main/java/com/sdll18/lee2/dao/sql/LeeUserDao.java
 /Users/junlanli/Desktop/Work/springmvc-hibernate-dubbo/lee2/src/main/java/com/sdll18/lee2/model/sql/Lee.java
+/Users/junlanli/Desktop/Work/springmvc-hibernate-dubbo/lee2/src/main/java/com/sdll18/lee2/service/KafkaServiceImpl.java
 /Users/junlanli/Desktop/Work/springmvc-hibernate-dubbo/lee2/src/main/java/com/sdll18/lee2/dao/cache/LeeCacheDao.java
 /Users/junlanli/Desktop/Work/springmvc-hibernate-dubbo/lee2/src/main/java/com/sdll18/lee2/Starter/Starter.java
 /Users/junlanli/Desktop/Work/springmvc-hibernate-dubbo/lee2/src/main/java/com/sdll18/lee2/common/CacheKeyGetter.java
