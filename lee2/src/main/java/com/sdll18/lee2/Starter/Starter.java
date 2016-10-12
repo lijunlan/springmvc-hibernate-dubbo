@@ -1,11 +1,7 @@
 package com.sdll18.lee2.Starter;
 
 import com.alibaba.fastjson.JSONObject;
-import com.sdll18.lee2.dao.cache.LeeCacheDao;
-import com.sdll18.lee2.model.sql.Lee;
 import com.sdll18.service.KafkaService;
-import com.sdll18.service.LeeNoSqlService;
-import com.sdll18.service.LeeUserService;
 import org.apache.log4j.Logger;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.util.Log4jConfigurer;

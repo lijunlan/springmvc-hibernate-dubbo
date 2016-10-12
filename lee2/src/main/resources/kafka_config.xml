@@ -11,7 +11,7 @@
        http://www.springframework.org/schema/integration/kafka
        http://www.springframework.org/schema/integration/kafka/spring-integration-kafka.xsd">
 
-    <int:channel id="inputToKafka" message-converter=""/>
+    <int:channel id="inputToKafka"/>
 
     <!-- topic-expression="headers.topic != null ? headers.topic : 'focusMainDataRefresh'"-->
     <int-kafka:outbound-channel-adapter id="kafkaOutboundChannelAdapter"
@@ -31,6 +31,7 @@
                         <entry key="bootstrap.servers" value="${kafka.host}:${kafka.port}"/>
                         <entry key="key.serializer" value="org.apache.kafka.common.serialization.StringSerializer"/>
                         <entry key="value.serializer" value="org.apache.kafka.common.serialization.StringSerializer"/>
+                        <entry key="acks" value="1"/>
                         <!-- more producer properties -->
                     </map>
                 </constructor-arg>

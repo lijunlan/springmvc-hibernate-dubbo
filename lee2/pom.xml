@@ -293,6 +293,7 @@
             <type>jar</type>
             <scope>compile</scope>
         </dependency>
+
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
@@ -316,7 +317,6 @@
                 <directory>src/main/resources</directory>
                 <includes>
                     <include>**/*.*</include>
-                    <include>mongo_config.xml</include>
                 </includes>
                 <filtering>true</filtering>
             </resource>
