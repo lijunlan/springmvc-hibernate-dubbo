@@ -3,6 +3,7 @@ package com.sdll18.lee2.Starter;
 import com.alibaba.fastjson.JSONObject;
 import com.sdll18.lee2.dao.cache.LeeCacheDao;
 import com.sdll18.lee2.model.sql.Lee;
+import com.sdll18.service.KafkaService;
 import com.sdll18.service.LeeNoSqlService;
 import com.sdll18.service.LeeUserService;
 import org.apache.log4j.Logger;
@@ -34,6 +35,12 @@ public class Starter {
             ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                     new String[]{contextFile});
             context.start();
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("1", "1231");
+            jsonObject.put("ett", "test");
+            KafkaService kafkaService = (KafkaService) context.getBean("kafkaService");
+            System.out.println(kafkaService.sendMessage("for_first_test", jsonObject));
+
 //            LeeCacheDao lcd = (LeeCacheDao) context.getBean("leeCacheDao");
 //            Lee lee = new Lee();
 //            lee.setId("ooiwetriewreworjew");

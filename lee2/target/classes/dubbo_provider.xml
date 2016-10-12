@@ -14,6 +14,8 @@
     <import resource="mongo_config.xml"/>
 
     <import resource="redis_config.xml"/>
+    
+    <import resource="kafka_config.xml"/>
     <!--<dubbo:annotation package="com.sdll18.lee2.service"/>-->
 
     <dubbo:application name="lee2"/>

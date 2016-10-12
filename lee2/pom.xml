@@ -11,7 +11,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <org.hibernate-version>4.3.1.Final</org.hibernate-version>
-        <spring-version>4.2.8.RELEASE</spring-version>
+        <spring-version>4.3.2.RELEASE</spring-version>
         <spring-data-mongo-version>1.8.4.RELEASE</spring-data-mongo-version>
         <spring-data-redis-version>1.7.3.RELEASE</spring-data-redis-version>
         <jedis-version>2.8.1</jedis-version>
@@ -112,6 +112,31 @@
         <!--<version>1.4</version>-->
         <!--</dependency>-->
 
+        <!--for kafka-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.kafka</groupId>-->
+            <!--<artifactId>spring-kafka</artifactId>-->
+            <!--<version>1.1.1.RELEASE</version>-->
+        <!--</dependency>-->
+
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-clients</artifactId>
+            <version>0.10.0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.integration</groupId>
+            <artifactId>spring-integration-kafka</artifactId>
+            <version>2.1.0.RELEASE</version>
+        </dependency>
+
+
+        <!--<dependency>-->
+            <!--<groupId>org.apache.kafka</groupId>-->
+            <!--<artifactId>kafka_2.10</artifactId>-->
+            <!--<version>0.10.0.1</version>-->
+        <!--</dependency>-->
 
         <!--for redis-->
         <dependency>
@@ -401,6 +426,8 @@
                 <redis.port>7000</redis.port>
                 <redis.instanceId></redis.instanceId>
                 <redis.password>ll1992917</redis.password>
+                <kafka.host>47.90.63.120</kafka.host>
+                <kafka.port>9092</kafka.port>
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>

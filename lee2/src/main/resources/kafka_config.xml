@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:int-kafka="http://www.springframework.org/schema/integration/kafka"
+       xmlns:int="http://www.springframework.org/schema/integration"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/integration
+       http://www.springframework.org/schema/integration/spring-integration.xsd
+       http://www.springframework.org/schema/integration/kafka
+       http://www.springframework.org/schema/integration/kafka/spring-integration-kafka.xsd">
+
+    <int:channel id="inputToKafka" message-converter=""/>
+
+    <!-- topic-expression="headers.topic != null ? headers.topic : 'focusMainDataRefresh'"-->
+    <int-kafka:outbound-channel-adapter id="kafkaOutboundChannelAdapter"
+                                        kafka-template="kafkaTemplate"
+                                        auto-startup="false"
+                                        channel="inputToKafka"
+                                        topic="focusMainDataRefresh"
+                                        message-key-expression="headers.kafka_messageKey"
+    >
+    </int-kafka:outbound-channel-adapter>
+
+    <bean id="kafkaTemplate" class="org.springframework.kafka.core.KafkaTemplate">
+        <constructor-arg>
+            <bean class="org.springframework.kafka.core.DefaultKafkaProducerFactory">
+                <constructor-arg>
+                    <map>
+                        <entry key="bootstrap.servers" value="${kafka.host}:${kafka.port}"/>
+                        <entry key="key.serializer" value="org.apache.kafka.common.serialization.StringSerializer"/>
+                        <entry key="value.serializer" value="org.apache.kafka.common.serialization.StringSerializer"/>
+                        <!-- more producer properties -->
+                    </map>
+                </constructor-arg>
+            </bean>
+        </constructor-arg>
+    </bean>
+
+    <!--<int-kafka:outbound-channel-adapter kafka-producer-context-ref="kafkaTemplate" topic="focusMainDataRefresh" message-key="'bar'" />-->
+    <!--<int:channel id="inputToKafka"/>-->
+
+    <!--<int-kafka:outbound-channel-adapter kafka-producer-context-ref="kafkaProducerContext"-->
+    <!--order="1">-->
+    <!--</int-kafka:outbound-channel-adapter>-->
+
+    <!--&lt;!&ndash;key-serializer="stringSerializer"&ndash;&gt;-->
+    <!--&lt;!&ndash;value-serializer="stringSerializer"&ndash;&gt;-->
+    <!--<int-kafka:producer-context id="kafkaProducerContext" producer-properties="producerProperties">-->
+    <!--<int-kafka:producer-configurations>-->
+    <!--<int-kafka:producer-configuration broker-list="${kafka.host}:${kafka.port}"-->
+    <!--key-encoder="kafka.serializer.StringEncoder"-->
+    <!--key-class-type="java.lang.String"-->
+    <!--value-encoder="kafka.serializer.StringEncoder"-->
+    <!--value-class-type="java.lang.String"-->
+    <!--topic="focusMainDataRefresh"/>-->
+    <!--</int-kafka:producer-configurations>-->
+    <!--</int-kafka:producer-context>-->
+
+    <!--<bean id="producerProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">-->
+    <!--<property name="properties">-->
+    <!--<props>-->
+    <!--<prop key="topic.metadata.refresh.interval.ms">3600000</prop>-->
+    <!--<prop key="message.send.max.retries">5</prop>-->
+    <!--<prop key="send.buffer.bytes">5242880</prop>-->
+    <!--</props>-->
+    <!--</property>-->
+    <!--</bean>-->
+
+    <!--<bean id="kafkaTemplate" class="org.springframework.kafka.core.KafkaTemplate">-->
+    <!--<constructor-arg>-->
+    <!--<bean class="org.springframework.kafka.core.DefaultKafkaProducerFactory">-->
+    <!--<constructor-arg>-->
+    <!--<map>-->
+    <!--<entry key="bootstrap.servers" value="${kafka.host}:${kafka.port}"/>-->
+    <!--&lt;!&ndash;... &lt;!&ndash; more producer properties &ndash;&gt;&ndash;&gt;-->
+    <!--</map>-->
+    <!--</constructor-arg>-->
+    <!--</bean>-->
+    <!--</constructor-arg>-->
+    <!--&lt;!&ndash;<property name="defaultTopic" value="focusMainDataRefresh"/>&ndash;&gt;-->
+    <!--</bean>-->
+
+</beans>
