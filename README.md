@@ -10,4 +10,6 @@ kafka-producer
 
 mongo
 
+redis
+
 spring-integration-kafka
